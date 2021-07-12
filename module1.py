@@ -298,58 +298,58 @@ def CNNevaluate(model, Xtest, ytest):  # computes CM and PE for test set
 
 
 # %%
-Nrestarts = 10
-PEG_vals = np.zeros(Nrestarts)
+# Nrestarts = 10
+# PEG_vals = np.zeros(Nrestarts)
 
-# the data, split between train and test sets
-(X_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
-# Scale images to the [0, 1] range
-x_test = x_test.astype("float32") / 255
-# Make sure images have shape (28, 28, 1)
-x_test = np.expand_dims(x_test, -1)
+# # the data, split between train and test sets
+# (X_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
+# # Scale images to the [0, 1] range
+# x_test = x_test.astype("float32") / 255
+# # Make sure images have shape (28, 28, 1)
+# x_test = np.expand_dims(x_test, -1)
 
-for restart in range(Nrestarts):
+# for restart in range(Nrestarts):
 
-    model, history = CNNfit(generated_train, generated_y)
+#     model, history = CNNfit(generated_train, generated_y)
     
 
-    Nerr, Ntotal,CM, PEG = CNNevaluate(model,x_test,y_test) 
-    PEG_vals[restart] = PEG
+#     Nerr, Ntotal,CM, PEG = CNNevaluate(model,x_test,y_test) 
+#     PEG_vals[restart] = PEG
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.boxplot(PEG_vals)
-ax.set_title('Data Augmentation')
-ax.set_xlabel('PEG')
-ax.set_ylabel('PE')
-plt.show() 
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# ax.boxplot(PEG_vals)
+# ax.set_title('Data Augmentation')
+# ax.set_xlabel('PEG')
+# ax.set_ylabel('PE')
+# plt.show() 
 
 
 # %%
-Nrestarts = 10
-PEG_vals = np.zeros(Nrestarts)
+# Nrestarts = 10
+# PEG_vals = np.zeros(Nrestarts)
 
-# the data, split between train and test sets
-(X_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
-# Scale images to the [0, 1] range
-x_test = x_test.astype("float32") / 255
-# Make sure images have shape (28, 28, 1)
-x_test = np.expand_dims(x_test, -1)
+# # the data, split between train and test sets
+# (X_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
+# # Scale images to the [0, 1] range
+# x_test = x_test.astype("float32") / 255
+# # Make sure images have shape (28, 28, 1)
+# x_test = np.expand_dims(x_test, -1)
 
-for restart in range(Nrestarts):
+# for restart in range(Nrestarts):
 
-    model, history = CNNfit(train, y)
+#     model, history = CNNfit(train, y)
     
 
-    Nerr, Ntotal,CM, PEG = CNNevaluate(model,x_test,y_test) 
-    PEG_vals[restart] = PEG
+#     Nerr, Ntotal,CM, PEG = CNNevaluate(model,x_test,y_test) 
+#     PEG_vals[restart] = PEG
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.boxplot(PEG_vals)
-ax.set_title('Original Data')
-ax.set_xlabel('PEG')
-ax.set_ylabel('PE')
-plt.show() 
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# ax.boxplot(PEG_vals)
+# ax.set_title('Original Data')
+# ax.set_xlabel('PEG')
+# ax.set_ylabel('PE')
+# plt.show() 
 
 
